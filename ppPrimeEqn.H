@@ -1,7 +1,7 @@
 // PRIME loop Step 6: Using the latest available velocity, flux and pressure
 // fields, re-formulate  momentum equation and solve it explicitly.
 
-fvVectorMatrix UPrimeEqn
+tmp<fvVectorMatrix> tUPrimeEqn
 (
     fvm::ddt(U)
   + fvm::div(phi, U)
@@ -10,11 +10,14 @@ fvVectorMatrix UPrimeEqn
  ==
     fvOptions(U)
 );
+fvVectorMatrix& UPrimeEqn = tUPrimeEqn.ref();
 
 volScalarField rAU(1.0/UPrimeEqn.A());
 
 // explicit velocity calculation (eq. 15.176)
 U = rAU*(UPrimeEqn.H() - fvc::grad(p));
+tUPrimeEqn.clear();
+
 
 // Rhie-Chow and ddt flux correction
 {

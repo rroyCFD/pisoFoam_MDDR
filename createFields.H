@@ -48,4 +48,10 @@ autoPtr<incompressible::turbulenceModel> turbulence
 // Get prime loop iterators
 const dictionary& pisoDict = mesh.solutionDict().subDict("PISO");
 label nPrimeIterators = pisoDict.lookupOrDefault<label>("nPrimeIterators", 0);
+if(nPrimeIterators)
+{
+    Info << " Prime iterators: " << nPrimeIterators << endl;
+}
+
+// Create pressure correction fields
 #include "createpp.H"

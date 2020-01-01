@@ -3,6 +3,7 @@
 // mass flow rate field phi^∗f.
 
 volScalarField rAU(1.0/UEqn.A());
+tUEqn.clear();
 
 // Rhie-Chow and ddt flux correction
 {
