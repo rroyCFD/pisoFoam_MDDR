@@ -7,23 +7,23 @@
 - Fadl Moukalled AUB  email: moukalled@aub.edu.lb
 
 #### Modification and adaptation for OF-6
-Rajib Roy  University of Wyoming email: rroy@uwyo.edu, roy.rajib@live.com
+Rajib Roy; University of Wyoming; email: rroy@uwyo.edu, roy.rajib@live.com
 
 ### Description
-Transient solver for incompressible, turbulent flow, using the PISO algorithm. The PISO algorithm followes the original paper by Issa:
+Transient solver for incompressible, turbulent flow, using the PISO algorithm. The PISO algorithm followes the original paper by [Issa](https://doi.org/10.1016/0021-9991(86)90099-9):
 
-    Issa RI (1982) Solution of the implicit discretized fluid flow equations by operator splitting. Mechanical Engineering Report, FS/82/15, Imperial College, London,
+    Issa RI (1982) Solution of the implicit discretized fluid flow equations by operator splitting. Mechanical Engineering Report, FS/82/15, Imperial College, London, https://doi.org/10.1016/0021-9991(86)90099-9,
 
-and later modification proposed by Yen et al.
+and later modification proposed by [Yen et al.](https://doi.org/10.1080/10407799308955885)
 
-    Yen RH, Liu CH (1993) Enhancement of the SIMPLE algorithm by an additional explicit corrector step. Numer Heat Transfer, Part B 24:127–141
+    Yen RH, Liu CH (1993) Enhancement of the SIMPLE algorithm by an additional explicit corrector step. Numer Heat Transfer, Part B 24:127–141, https://doi.org/10.1080/10407799308955885
 
 The PISO algorithm is illustrated in the book [The Finite Volume Method in Computational Fluid Dynamics: An Advanced Introduction with OpenFOAM® and Matlab](https://www.springer.com/gp/book/9783319168739) by  Moukalled, F., Mangani, L., Darwish, M. in section _15.7.3_.
 
 
     1. To compute the solution at time t + Δt, use as an initial guess the solution at time t for pressure, velocity, and mass flow rate fields p(n), u(n), and phi(n) respectively.
 
-** SIMPLE Steps **
+**SIMPLE Steps**
 
     2. Solve implicitly the momentum equation given by Eq. (15.70) to obtain a new velocity field v*.
 
@@ -33,7 +33,7 @@ The PISO algorithm is illustrated in the book [The Finite Volume Method in Compu
 
     5. Update the pressure and velocity fields at the cell centroids and the mass flow rate at the cell faces to obtain continuity-satisfying fields using Eq. (15.101).
 
-** PRIME Steps ** 
+**PRIME Steps** 
 
     6. Using the latest available velocity and pressure fields, calculate the coefficients of the momentum equation and solve it explicitly.
     
